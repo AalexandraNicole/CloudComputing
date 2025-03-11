@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "title": "Fur Elise",
+    "composer": "Ludwig van Beethoven",
+    "notes": "E5 D#5 E5 D#5 E5 B4 D5 C5 A4",
+    "tempo": 120
+  },
+  {
+    "id": "2",
+    "title": "Moonlight Sonata",
+    "composer": "Ludwig van Beethoven",
+    "notes": "C4 E4 G4 C5 E5 G5 C6",
+    "tempo": 80
+  }
+]

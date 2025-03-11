@@ -1,0 +1,26 @@
+<scores>
+    <score id="1">
+        <title>Canon in D</title>
+        <composer>Johann Pachelbel</composer>
+        <tempo>BPM 80</tempo>
+        <key>C major</key>
+        <time-signature>4/4</time-signature>
+        <notes>
+            <note>
+                <pitch>C4</pitch>
+                <duration>quarter</duration>
+                <octave>4</octave>
+            </note>
+            <note>
+                <pitch>D4</pitch>
+                <duration>quarter</duration>
+                <octave>4</octave>
+            </note>
+            <note>
+                <pitch>E4</pitch>
+                <duration>half</duration>
+                <octave>4</octave>
+            </note>
+        </notes>
+    </score>
+</scores>
