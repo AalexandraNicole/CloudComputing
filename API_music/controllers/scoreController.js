@@ -105,10 +105,69 @@ async function deleteScore(req, res, id) {
   }
 }
 
+// @desc    Partially update a Score
+// @route   PATCH /api/scores/:id
+async function patchScore(req, res, id) {
+  try {
+    const score = await Score.findById(id);
+
+    if (!score) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ message: 'Score Not Found' }));
+    }
+
+    const body = await getPostData(req);
+    const updatedFields = JSON.parse(body);
+
+    // Actualizăm doar câmpurile care au fost trimise în request
+    Object.assign(score, updatedFields);
+
+    const updatedScore = await Score.update(id, score);
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end(JSON.stringify(updatedScore));
+  } catch (error) {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: error }));
+  }
+}
+
+// @desc    Check if a Score exists (HEAD Request)
+// @route   HEAD /api/scores/:id
+async function headScore(req, res, id) {
+  try {
+    const score = await Score.findById(id);
+
+    if (!score) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end();
+    }
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    return res.end();
+  } catch (error) {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    return res.end();
+  }
+}
+
+// @desc    Return available HTTP methods
+// @route   OPTIONS /api/scores
+async function optionsScores(req, res) {
+  res.writeHead(200, {
+    'Allow': 'GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS',
+    'Content-Type': 'application/json'
+  });
+  return res.end();
+}
+
 module.exports = {
   getScores,
   getScore,
   createScore,
   updateScore,
   deleteScore,
+  patchScore,
+  headScore,
+  optionsScores,
 };

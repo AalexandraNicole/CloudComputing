@@ -32,6 +32,22 @@ function update(id, scoreData) {
   });
 }
 
+function patch(id, scoreData) {
+  return new Promise((resolve, reject) => {
+    const index = scores.findIndex((s) => s.id === id);
+
+    if (index === -1) {
+      reject(new Error(`Score with id ${id} not found`));
+    } else {
+      // Actualizare parțială
+      scores[index] = { ...scores[index], ...scoreData };
+      writeDataToFile('./data/scores.json', scores);
+      resolve(scores[index]);
+    }
+  });
+}
+
+
 function remove(id) {
   return new Promise((resolve) => {
     scores = scores.filter((s) => s.id !== id);
@@ -40,10 +56,37 @@ function remove(id) {
   });
 }
 
+function options() {
+  return new Promise((resolve) => {
+    resolve({
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+    });
+  });
+}
+
+function head(id) {
+  return new Promise((resolve, reject) => {
+    const score = scores.find((s) => s.id === id);
+
+    if (!score) {
+      reject(new Error(`Score with id ${id} not found`));
+    } else {
+      resolve({
+        id: score.id,
+        title: score.title,
+        composer: score.composer
+      });
+    }
+  });
+}
+
 module.exports = {
   findAll,
   findById,
   create,
   update,
+  patch,
   remove,
+  options,
+  head,
 };

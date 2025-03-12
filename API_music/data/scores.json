@@ -12,5 +12,19 @@
     "composer": "Ludwig van Beethoven",
     "notes": "C4 E4 G4 C5 E5 G5 C6",
     "tempo": 80
+  },
+  {
+    "id": "3",
+    "title": "New Score",
+    "composer": "Unknown",
+    "notes": "C D E F G",
+    "tempo": 120
+  },
+  {
+    "id": "4",
+    "title": "Inventie",
+    "composer": "Beethoven",
+    "notes": "A B C D E",
+    "tempo": 100
   }
 ]
