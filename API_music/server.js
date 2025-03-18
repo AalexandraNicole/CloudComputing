@@ -1,5 +1,5 @@
 const http = require('http');
-const { getScores, getScore, createScore, updateScore, deleteScore, patchScore, optionsScores, headScore } = require('./controllers/scoreController');
+const { getScores, getScore, createScore, updateScore, deleteScore, patchScore, optionsScores, headScore, createScoreFail } = require('./controllers/scoreController');
 
 const server = http.createServer((req, res) => {
   if (req.url === '/api/scores' && req.method === 'GET') {
@@ -11,6 +11,9 @@ const server = http.createServer((req, res) => {
 
   } else if (req.url === '/api/scores' && req.method === 'POST') {
     createScore(req, res);
+
+  } else if (req.url.match(/\/api\/scores\/\w+/) && req.method === 'POST') {
+    createScoreFail(req, res);
 
   } else if (req.url.match(/\/api\/scores\/\w+/) && req.method === 'PUT') {
     const id = req.url.split('/')[3];

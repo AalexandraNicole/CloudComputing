@@ -39,6 +39,11 @@ async function createScore(req, res) {
     const body = await getPostData(req);
     const { title, composer, notes, tempo } = JSON.parse(body);
 
+    if (!title || !composer || !notes || !tempo) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ message: 'Bad Request: Missing required fields' }));
+    }
+
     const score = {
       title,
       composer,
@@ -49,6 +54,17 @@ async function createScore(req, res) {
     const newScore = await Score.create(score);
     res.writeHead(201, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify(newScore));
+  } catch (error) {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: error }));
+  }
+}
+// @desc    can not Create a Score with id
+// @route   POST /api/scores/id
+async function createScoreFail(req, res) {
+  try {
+    res.writeHead(405, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ message: 'Method Not Allowed' }));
   } catch (error) {
     res.writeHead(500, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: error }));
@@ -170,4 +186,5 @@ module.exports = {
   patchScore,
   headScore,
   optionsScores,
+  createScoreFail,
 };
