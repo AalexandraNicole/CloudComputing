@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './css/SearchSongPage.css'; // Import the CSS file
+import './css/SearchSongPage.css'; 
 
 const SearchSongPage = () => {
   const [query, setQuery] = useState('');

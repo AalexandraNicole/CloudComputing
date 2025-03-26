@@ -32,6 +32,27 @@ async function getScore(req, res, id) {
   }
 }
 
+function normalizeNotes(notes) {
+  // Assuming notes are space-separated like: "c d# f3 g Bb a5"
+  return notes
+    .split(/\s+/)
+    .map(note => {
+      const match = note.match(/^([a-gA-G])([#b]?)(\d?)$/);
+
+      if (!match) return note; // if note is invalid, keep as is
+
+      let [, base, accidental, octave] = match;
+
+      base = base.toUpperCase(); // make note uppercase
+      accidental = accidental || ''; // keep # or b if exists
+      octave = octave || '4'; // default to octave 4 if not provided
+
+      return `${base}${accidental}${octave}`;
+    })
+    .join(' ');
+}
+
+
 // @desc    Create a Score
 // @route   POST /api/scores
 async function createScore(req, res) {
@@ -47,7 +68,7 @@ async function createScore(req, res) {
     const score = {
       title,
       composer,
-      notes,
+      notes: normalizeNotes(notes),
       tempo,
     };
 
@@ -87,7 +108,7 @@ async function updateScore(req, res, id) {
       const scoreData = {
         title: title || score.title,
         composer: composer || score.composer,
-        notes: notes || score.notes,
+        notes: notes ? normalizeNotes(notes) : score.notes,
         tempo: tempo || score.tempo,
       };
 

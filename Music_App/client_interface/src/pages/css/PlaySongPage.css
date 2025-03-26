@@ -1,0 +1,76 @@
+/* PlaySongPage.css */
+
+.play-song-page {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.play-song-page h2 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.play-song-page p {
+  font-size: 1.1rem;
+  color: #374151;
+  margin-bottom: 1.2rem;
+}
+
+.tempo-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.tempo-control label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.tempo-control input[type="range"] {
+  width: 200px;
+  cursor: pointer;
+}
+
+.tempo-control span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.play-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.play-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.play-button:hover:not(:disabled) {
+  background-color: #16a34a;
+}
+
+.current-note {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+}
