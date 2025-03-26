@@ -11,8 +11,8 @@ const PlaySongPage = () => {
   const [tempo, setTempo] = useState(120); 
   const [currentNote, setCurrentNote] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [setSynth] = useState(null);
-  const [setSequence] = useState(null);
+  const [synth, setSynth] = useState(null);
+  const [sequence, setSequence] = useState(null);
 
   const handleDelete = async () => {
     const isConfirmed = window.confirm("Are you sure you want to delete this song?");
