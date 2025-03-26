@@ -19,5 +19,159 @@
     "composer": "Alex",
     "notes": "A4 A4 A4 B4 B4 B4 B#4 B#4 B#4",
     "tempo": 120
+  },
+  {
+    "id": "4",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "notes": "D4 A4 B4 F#4 G4 A4 D5 D4 A4 B4 F#4 G4 A4 D5",
+    "tempo": 90
+  },
+  {
+    "id": "5",
+    "title": "Clair de Lune",
+    "composer": "Claude Debussy",
+    "notes": "D4 F#4 G4 A4 B4 D5 F5 A4 B4 A4 G4",
+    "tempo": 60
+  },
+  {
+    "id": "6",
+    "title": "Symphony No. 9",
+    "composer": "Ludwig van Beethoven",
+    "notes": "G4 F#4 E4 D4 C4 B3 A3 G3 F3 E3",
+    "tempo": 108
+  },
+  {
+    "id": "7",
+    "title": "Eine kleine Nachtmusik",
+    "composer": "Wolfgang Amadeus Mozart",
+    "notes": "G4 B4 D5 G5 B4 G4 B4 D5 G5",
+    "tempo": 120
+  },
+  {
+    "id": "8",
+    "title": "The Four Seasons - Spring",
+    "composer": "Antonio Vivaldi",
+    "notes": "E4 G4 B4 E5 G5 B5 E5 G5 E4 G4",
+    "tempo": 140
+  },
+  {
+    "id": "9",
+    "title": "Prelude in C Major",
+    "composer": "Johann Sebastian Bach",
+    "notes": "C4 E4 G4 C5 E5 G5 C6 E6",
+    "tempo": 90
+  },
+  {
+    "id": "10",
+    "title": "Toccata and Fugue in D Minor",
+    "composer": "Johann Sebastian Bach",
+    "notes": "D4 A4 F#4 D5 B4 D5 A4 F#4 D5",
+    "tempo": 132
+  },
+  {
+    "id": "11",
+    "title": "Symphony No. 40 in G Minor",
+    "composer": "Wolfgang Amadeus Mozart",
+    "notes": "G4 B4 D5 G5 A4 F#4 E4 G4 D5",
+    "tempo": 108
+  },
+  {
+    "id": "12",
+    "title": "Ave Maria",
+    "composer": "Franz Schubert",
+    "notes": "C4 E4 G4 C5 E5 G5 F4 E4 D4",
+    "tempo": 60
+  },
+  {
+    "id": "13",
+    "title": "Hungarian Dance No. 5",
+    "composer": "Johannes Brahms",
+    "notes": "C5 D5 G5 D5 F5 E5 G5 F5 D5",
+    "tempo": 130
+  },
+  {
+    "id": "14",
+    "title": "Fantasie Impromptu",
+    "composer": "Frédéric Chopin",
+    "notes": "C5 E5 G5 C6 E6 C6 B5 G5",
+    "tempo": 140
+  },
+  {
+    "id": "15",
+    "title": "La Campanella",
+    "composer": "Franz Liszt",
+    "notes": "G4 E4 G4 B4 G5 E5 G5 B5 G6",
+    "tempo": 180
+  },
+  {
+    "id": "16",
+    "title": "The Nutcracker Suite",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "notes": "D5 A4 B4 G4 F#4 E4 D4",
+    "tempo": 100
+  },
+  {
+    "id": "17",
+    "title": "Adagio for Strings",
+    "composer": "Samuel Barber",
+    "notes": "A4 B4 C5 D5 E5 F#5 G5 A5",
+    "tempo": 60
+  },
+  {
+    "id": "18",
+    "title": "Requiem",
+    "composer": "Wolfgang Amadeus Mozart",
+    "notes": "D4 G4 A4 B4 C5 E5 D5",
+    "tempo": 60
+  },
+  {
+    "id": "19",
+    "title": "Pavane",
+    "composer": "Gabriel Fauré",
+    "notes": "G4 A4 B4 C5 E5 D5 C5",
+    "tempo": 70
+  },
+  {
+    "id": "20",
+    "title": "Boléro",
+    "composer": "Maurice Ravel",
+    "notes": "G4 F#4 E4 D4 C4 B4 A4 G4",
+    "tempo": 60
+  },
+  {
+    "id": "21",
+    "title": "Piano Sonata No. 16",
+    "composer": "Wolfgang Amadeus Mozart",
+    "notes": "C4 D4 E4 F4 G4 A4 B4 C5",
+    "tempo": 110
+  },
+  {
+    "id": "22",
+    "title": "Waltz of the Flowers",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "notes": "C5 E5 F5 G5 E5 D5 E5 F5",
+    "tempo": 120
+  },
+  {
+    "id": "23",
+    "title": "Rhapsody in Blue",
+    "composer": "George Gershwin",
+    "notes": "C4 E4 G4 C5 E5 G5 C6 D5",
+    "tempo": 120
+  },
+  {
+    "id": "24",
+    "title": "Carmen Suite",
+    "composer": "Georges Bizet",
+    "notes": "G4 B4 D5 G5 A5 D5 G4",
+    "tempo": 110
+  },
+  {
+    "id": "25",
+    "title": "The Blue Danube",
+    "composer": "Johann Strauss II",
+    "notes": "C5 E5 G5 B5 A4 G4 E4 D4",
+    "tempo": 120
   }
 ]
