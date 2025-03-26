@@ -40,12 +40,5 @@
     "composer": "Me",
     "notes": "C D E F G C C C",
     "tempo": 100
-  },
-  {
-    "id": "7",
-    "title": "Test",
-    "composer": "Alex",
-    "notes": "C C C C C C ",
-    "tempo": "107"
   }
 ]

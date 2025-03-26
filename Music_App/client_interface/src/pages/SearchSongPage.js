@@ -10,11 +10,16 @@ const SearchSongPage = () => {
   // Handle form submission or input change
   const handleSearch = async (e) => {
     e.preventDefault();
-
+    if (!query.trim()) {
+        setError("Please enter a valid search term.");
+        return;
+    }
     try {
       // Make the API request to your backend server
+      console.log('Search for: ', query );
       const response = await axios.get(`http://localhost:3001/api/${query}`);
-      setSearchResults(response.data); // Store the search results in the state
+      console.log('Search results:', response.data);  // Log the results to verify the data
+      setSearchResults(response.data.data); // Set the search results
       setError(null); // Clear any previous errors
     } catch (error) {
       setError("Failed to fetch songs");
@@ -41,8 +46,23 @@ const SearchSongPage = () => {
         <h2>Search Results</h2>
         {searchResults.length > 0 ? (
           <ul>
-            {searchResults.data.map((song, index) => (
-              <li key={index}>{song.title} by {song.artist.name}</li>
+            {searchResults.map((song, index) => (
+              <li key={song.id}>
+                <div className="song-item">
+                  <img 
+                    src={song.album.cover_medium} 
+                    alt={song.title} 
+                    className="album-cover"
+                  />
+                  <div className="song-info">
+                    <h3>{song.title}</h3>
+                    <p>{song.artist.name}</p>
+                    <a href={song.link} target="_blank" rel="noopener noreferrer">
+                      Listen Now
+                    </a>
+                  </div>
+                </div>
+              </li>
             ))}
           </ul>
         ) : (

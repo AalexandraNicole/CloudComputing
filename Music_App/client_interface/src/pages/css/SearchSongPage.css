@@ -1,18 +1,20 @@
 /* SearchSongPage.css */
 .search-song-page {
-  background-color: #f9fafb; /* Light gray background */
+  background-color: #f3f4f6; /* Light background color */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+  font-family: Arial, sans-serif;
 }
 
 .search-song-page h1 {
   font-size: 2.5rem;
   font-weight: 600;
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .search-song-page form {
@@ -24,7 +26,7 @@
 .search-song-page input {
   padding: 0.8rem;
   font-size: 1rem;
-  width: 300px;
+  width: 250px;
   border: 1px solid #d1d5db; /* Light border */
   border-radius: 4px;
   background-color: #ffffff;
@@ -62,32 +64,73 @@
   margin-top: 1rem;
 }
 
-.search-song-page ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.search-song-page ul li {
-  background-color: #ffffff; /* White background for each result */
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.search-song-page ul li:last-child {
-  margin-bottom: 0; /* Remove bottom margin from the last item */
-}
-
-.search-song-page h2 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-top: 2rem;
-}
-
 .search-song-page .no-results {
   font-size: 1.2rem;
   color: #6b7280; /* Gray color for no results */
   text-align: center;
   margin-top: 1rem;
+}
+
+.search-song-page ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-song-page ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* White background for each result */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.search-song-page ul li:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.album-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-info h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.song-info p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.song-info a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #38bdf8; /* Sky blue for the link */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.song-info a:hover {
+  color: #0ea5e9; /* Darker blue on hover */
 }
