@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { searchSongs } from '../services/searchAPI';
 import './css/SearchSongPage.css'; 
 
 const SearchSongPage = () => {
@@ -15,12 +15,11 @@ const SearchSongPage = () => {
         return;
     }
     try {
-      // Make the API request to your backend server
       console.log('Search for: ', query );
-      const response = await axios.get(`http://localhost:3001/api/${query}`);
-      console.log('Search results:', response.data);  // Log the results to verify the data
-      setSearchResults(response.data.data); // Set the search results
-      setError(null); // Clear any previous errors
+      const response = await searchSongs(query);
+      console.log('Search results:', response.data);  
+      setSearchResults(response.data.data); 
+      setError(null); 
     } catch (error) {
       setError("Failed to fetch songs");
       console.error("Error fetching from Deezer API:", error);
