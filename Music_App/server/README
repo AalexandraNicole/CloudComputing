@@ -1,0 +1,12 @@
+/music-app
+│
+├── /client         # React frontend
+│   ├── /components
+│   ├── /pages
+│   └── /services   # Fetches backend APIs
+│
+├── /server         # Express backend
+│   ├── /routes     # API endpoints
+│   ├── /services   # External API wrappers
+│   ├── /controllers
+│   └── /data       # DB or JSON file
