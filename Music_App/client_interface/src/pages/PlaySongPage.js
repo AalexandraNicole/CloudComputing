@@ -1,10 +1,6 @@
-// pages/PlaySongPage.js
-
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { getSongById } from '../services/api';
-import { deleteSong } from '../services/api';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getSongById, deleteSong } from '../services/api';
 import './css/PlaySongPage.css';
 import * as Tone from 'tone';
 
@@ -15,6 +11,8 @@ const PlaySongPage = () => {
   const [tempo, setTempo] = useState(120); 
   const [currentNote, setCurrentNote] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [setSynth] = useState(null);
+  const [setSequence] = useState(null);
 
   const handleDelete = async () => {
     const isConfirmed = window.confirm("Are you sure you want to delete this song?");
@@ -24,11 +22,10 @@ const PlaySongPage = () => {
     }
   };
   
-    const handleEdit = () => {
-      console.log(`Edit song with ID: ${song.id}`);
-      
-      navigate(`/edit-song/${song.id}`);
-    };
+  const handleEdit = () => {
+    console.log(`Edit song with ID: ${song.id}`);
+    navigate(`/edit-song/${song.id}`);
+  };
 
   useEffect(() => {
     const fetchSong = async () => {
@@ -45,61 +42,83 @@ const PlaySongPage = () => {
     await Tone.start();
     setIsPlaying(true);
 
-    const synth = new Tone.Synth().toDestination();
+    const newSynth = new Tone.Synth().toDestination();
+    setSynth(newSynth);
+
     const notes = song.notes.split(' ');
-    const noteDuration = (60 / tempo) * 1000; 
+    const noteDuration = (60 / tempo); 
 
-    let index = 0;
-
-    const playNext = () => {
-      if (index < notes.length) {
-        const note = notes[index];
+    const noteSequence = new Tone.Sequence(
+      (time, note) => {
         setCurrentNote(note);
-        synth.triggerAttackRelease(note, '8n');
-        index++;
-        setTimeout(playNext, noteDuration);
-      } else {
-        setIsPlaying(false);
-        setCurrentNote(null);
-      }
-    };
+        newSynth.triggerAttackRelease(note, "8n", time); 
+      },
+      notes,
+      noteDuration
+    );
 
-    playNext();
+    Tone.Transport.bpm.value = tempo;
+
+    Tone.Transport.start();
+    noteSequence.start(0); 
+
+    setSequence(noteSequence);
   };
 
+  // Stop the notes
+  const stopNotes = () => {
+    if (Tone.Transport.state === 'started') {
+      Tone.Transport.stop(); 
+      setIsPlaying(false);
+      setCurrentNote(null);
+    }
+  };
+
+  // Return loading screen if song is not yet loaded
   if (!song) return <div>Loading...</div>;
 
   return (
     <div className="play-song-page">
-    <h2>{song.title} - {song.composer}</h2>
-    <p><strong>Notes:</strong> {song.notes}</p>
+      <h2>{song.title} - {song.composer}</h2>
+      <p><strong>Notes:</strong> {song.notes}</p>
 
-    <div className="tempo-control">
-      <label htmlFor="tempo">🎚 Tempo:</label>
-      <input
-        id="tempo"
-        type="range"
-        min="60"
-        max="200"
-        value={tempo}
-        onChange={(e) => setTempo(Number(e.target.value))}
-      />
-      <span>{tempo} BPM</span>
-    </div>
+      <div className="tempo-control">
+        <label htmlFor="tempo">🎚 Tempo:</label>
+        <input
+          id="tempo"
+          type="range"
+          min="60"
+          max="200"
+          value={tempo}
+          onChange={(e) => setTempo(Number(e.target.value))}
+        />
+        <span>{tempo} BPM</span>
+      </div>
 
-    
-    <button className="play-button" onClick={handleEdit}>
-        Edit
-    </button>
-    <button className="play-button" onClick={playNotes} disabled={isPlaying}>
+      {!isPlaying && (
+        <button className="play-button" onClick={handleEdit}>
+            Edit
+        </button>
+      )}
+      <button className="play-button" onClick={playNotes} disabled={isPlaying}>
       {isPlaying ? 'Playing...' : 'Play'}
-    </button>
-    <button className="play-button" onClick={handleDelete}>
-        Delete
-    </button>
+      </button>
+      {!isPlaying && (
+      <button className="play-button" onClick={handleDelete}>
+            Delete
+      </button> 
+      )}
+      {isPlaying && (
+        <button
+        className="play-button"
+        onClick={stopNotes}
+        >
+          Stop
+        </button>
+      )}
 
-    {currentNote && <h3 className="current-note">🎶 Playing: {currentNote}</h3>}
-  </div>
+      {currentNote && <h3 className="current-note">🎶 Playing: {currentNote}</h3>}
+    </div>
   );
 };
 
