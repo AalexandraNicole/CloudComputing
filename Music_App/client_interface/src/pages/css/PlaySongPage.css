@@ -15,6 +15,10 @@
   font-size: 2rem;
   color: #1f2937;
   margin-bottom: 1rem;
+  background-color: bisque;
+  border-radius: 8px;
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
 }
 
 .play-song-page p {
@@ -50,8 +54,9 @@
 
 .play-button {
   padding: 0.75rem 2rem;
+  margin: 2rem;
   font-size: 1rem;
-  background-color: #22c55e;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 8px;
@@ -65,12 +70,14 @@
 }
 
 .play-button:hover:not(:disabled) {
-  background-color: #16a34a;
+  font-weight: bold;
+  background-color: bisque;
+  color: #333;
 }
 
 .current-note {
   margin-top: 2rem;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2563eb;
+  color: #333;
 }

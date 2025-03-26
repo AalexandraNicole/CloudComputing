@@ -34,12 +34,12 @@
 }
 
 .search-song-page input:focus {
-  border-color: #38bdf8; /* Sky blue border on focus */
+  border-color: #333;
   outline: none;
 }
 
 .search-song-page button {
-  background-color: #38bdf8; /* Sky blue */
+  background-color: #333;
   color: white;
   padding: 0.8rem 1.2rem;
   font-size: 1rem;
@@ -50,11 +50,13 @@
 }
 
 .search-song-page button:hover {
-  background-color: #0ea5e9; /* Darker blue on hover */
+  background-color: bisque; /* Darker on hover */
+  color: #333;
+  font-weight: bold;
 }
 
 .search-song-page button:active {
-  background-color: #0284c7; /* Even darker blue on click */
+  background-color: #000000;
 }
 
 .search-song-page p {
@@ -126,11 +128,11 @@
   display: inline-block;
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: #38bdf8; /* Sky blue for the link */
+  color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .song-info a:hover {
-  color: #0ea5e9; /* Darker blue on hover */
+  color: bisque;
 }

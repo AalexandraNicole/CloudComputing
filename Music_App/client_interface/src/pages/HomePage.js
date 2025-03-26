@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getSongs, deleteSong } from '../services/api';
+import { getSongs } from '../services/api';
 import SongCard from '../components/SongCard';
 import './css/HomePage.css';
 //import Navbar from '../components/Navbar';
@@ -20,19 +20,8 @@ const HomePage = () => {
     fetchSongs();
   }, []);
 
-  const handleDelete = async (id) => {
-  const isConfirmed = window.confirm("Are you sure you want to delete this song?");
-
-  if (isConfirmed) {
-    await deleteSong(id);
-    setSongs(songs.filter((song) => song.id !== id));
-  }
-};
-
-  const handleEdit = (id) => {
-    console.log(`Edit song with ID: ${id}`);
-    
-    navigate(`/edit-song/${id}`);
+  const handlePlay = (id) => {
+    navigate(`/play-song/${id}`);
   };
 
   return (
@@ -40,7 +29,8 @@ const HomePage = () => {
       <h1>Song List</h1>
       <div className="song-list">
         {songs.map((song) => (
-          <SongCard key={song.id} song={song} onEdit={handleEdit} onDelete={handleDelete} />
+          <SongCard key={song.id} song={song} 
+            onClick={handlePlay}/>
         ))}
       </div>
     </div>

@@ -43,10 +43,3 @@
   text-align: center;
   margin-top: 2rem;
 }
-
-.NotFound {
-  padding-top: 5rem;
-  height: 5vmin;
-  pointer-events: none;
-  align-self: center;
-}

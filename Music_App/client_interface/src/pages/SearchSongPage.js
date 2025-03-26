@@ -55,10 +55,9 @@ const SearchSongPage = () => {
                     className="album-cover"
                   />
                   <div className="song-info">
-                    <h3>{song.title}</h3>
-                    <p>{song.artist.name}</p>
                     <a href={song.link} target="_blank" rel="noopener noreferrer">
-                      Listen Now
+                      <h3>{song.title}</h3>
+                      <p>{song.artist.name}</p>
                     </a>
                   </div>
                 </div>

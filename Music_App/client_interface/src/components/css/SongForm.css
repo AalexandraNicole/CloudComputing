@@ -29,12 +29,12 @@ form input {
 }
 
 form input:focus {
-  border-color: #38bdf8; /* Sky blue on focus */
+  border-color: #333;
   outline: none;
 }
 
 form button {
-  background-color: #38bdf8; /* Sky blue */
+  background-color: #333; /* Sky blue */
   color: white;
   font-size: 1rem;
   padding: 0.8rem;
@@ -45,11 +45,13 @@ form button {
 }
 
 form button:hover {
-  background-color: #0ea5e9; /* Darker blue on hover */
+  background-color: bisque;
+  color: #333;
+  font-weight: bold;
 }
 
 form button:active {
-  background-color: #0284c7; /* Even darker on click */
+  background-color: #000000; /*darker on click */
 }
 
 form input[type="number"] {
