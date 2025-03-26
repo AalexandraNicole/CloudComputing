@@ -2,6 +2,10 @@ const http = require('http');
 const { getScores, getScore, createScore, updateScore, deleteScore, patchScore, optionsScores, headScore, createScoreFail } = require('./controllers/scoreController');
 
 const server = http.createServer((req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  console.log(`Request received: ${req.method} ${req.url}`);
   if (req.url === '/api/scores' && req.method === 'GET') {
     getScores(req, res);
 
