@@ -1,0 +1,19 @@
+/* Navbar.css */
+nav {
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  color: #f1f5f9; /* light gray */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #38bdf8; /* sky blue */
+}

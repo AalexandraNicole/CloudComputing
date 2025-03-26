@@ -1,0 +1,33 @@
+/* HomePage.css */
+.home-page {
+  background-color: #f3f4f6; /* Light gray background */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.home-page h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.song-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px; /* Optional max width for a cleaner look */
+}
+
+@media (max-width: 768px) {
+  .song-list {
+    grid-template-columns: 1fr; /* Single column layout on smaller screens */
+  }
+}

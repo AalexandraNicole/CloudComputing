@@ -1,0 +1,53 @@
+/* SongCard.css */
+.song-card {
+  background-color: #ffffff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 1.5rem;
+  margin: 1rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.song-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
+
+.song-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.song-card p {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.song-card p strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.song-card button {
+  background-color: #38bdf8; /* Sky blue */
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.song-card button:hover {
+  background-color: #0ea5e9; /* Darker blue on hover */
+}
+
+.song-card button:active {
+  background-color: #0284c7; /* Even darker on click */
+}
